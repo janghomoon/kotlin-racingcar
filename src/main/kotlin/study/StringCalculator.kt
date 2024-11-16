@@ -1,30 +1,23 @@
 package study
 
+import study.enums.FourBasicOperationSymbols
+import study.enums.getSymbol
+
 class StringCalculator {
     fun calculator(input: String?): Int {
         val inputs = inputToList(input)
         var result = 0
-        var operatorSymbol = "+"
+        var operatorSymbol = FourBasicOperationSymbols.ADD
 
         for (element in inputs) {
-            when (isNumeric(element)) {
-                true -> {
-                    val inputDigit = element.toInt()
-                    result = FourBasicOperations().operate(result, inputDigit, operatorSymbol)
-                }
-
-                false -> {
-                    operatorSymbol = getOperatorSymbol(element)
-                }
+            if (isNumeric(element)) {
+                val inputDigit = element.toInt()
+                result = FourBasicOperations().operate(result, inputDigit, operatorSymbol)
+            } else {
+                operatorSymbol = getSymbol(element)
             }
         }
         return result
-    }
-
-    private fun getOperatorSymbol(symbol: String): String {
-        val symbols = listOf("+", "-", "*", "/")
-        require(symbols.contains(symbol))
-        return symbol
     }
 
     private fun inputToList(input: String?): List<String> {
@@ -35,5 +28,4 @@ class StringCalculator {
     private fun isNumeric(s: String): Boolean {
         return runCatching { s.toInt() }.isSuccess
     }
-
 }

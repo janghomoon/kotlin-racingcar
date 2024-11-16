@@ -1,18 +1,19 @@
 package study
 
+import study.enums.FourBasicOperationSymbols
+
 class FourBasicOperations {
     fun operate(
         beforeValue: Int,
         targetValue: Int,
-        symbol: String,
+        symbol: FourBasicOperationSymbols,
     ): Int {
         val result: Int =
             when (symbol) {
-                "+" -> addition(beforeValue, targetValue)
-                "-" -> subtraction(beforeValue, targetValue)
-                "*" -> multiplication(beforeValue, targetValue)
-                "/" -> division(beforeValue, targetValue)
-                else ->  throw IllegalArgumentException()
+                FourBasicOperationSymbols.ADD -> addition(beforeValue, targetValue)
+                FourBasicOperationSymbols.SUBTRACT -> subtraction(beforeValue, targetValue)
+                FourBasicOperationSymbols.MULTIPLY -> multiplication(beforeValue, targetValue)
+                FourBasicOperationSymbols.DIVIDE -> division(beforeValue, targetValue)
             }
         return result
     }

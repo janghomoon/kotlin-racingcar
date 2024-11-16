@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.EmptySource
 import org.junit.jupiter.params.provider.NullSource
 
 class StringCalculatorTest {
-    @DisplayName("입력 값 테스트 NULL  혹은 빈문자열인경우  IllegalArgumentException throw")
+    @DisplayName("입력 값 테스트 NULL  혹은 빈문자열인경우")
     @ParameterizedTest
     @NullSource
     @EmptySource
@@ -18,14 +18,13 @@ class StringCalculatorTest {
             .isInstanceOf(IllegalArgumentException::class.java)
     }
 
-    @DisplayName("입력 값 문자열이 사칙연산 기호가 아닌경우  IllegalArgumentException throw")
+    @DisplayName("입력 값 문자열이 사칙연산 기호가 아닌경우")
     @Test
     fun calculateSymbolErrorTest() {
         AssertionsForClassTypes.assertThatThrownBy { StringCalculator().calculator("1 @ 2") }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
 
-    // 사칙연사
     @DisplayName("덧셈 테스트")
     @Test
     fun addTest() {
@@ -66,9 +65,9 @@ class StringCalculatorTest {
         assertThat(result).isEqualTo(1)
     }
 
-    @DisplayName("예제 테스트")
+    @DisplayName("복합 연산 테스트")
     @Test
-    fun sampleTest() {
+    fun complexTest() {
         val input = "2 + 3 * 4 / 2"
 
         val result = StringCalculator().calculator(input)
