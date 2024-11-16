@@ -11,7 +11,8 @@ class FourBasicOperations {
                 "+" -> addition(beforeValue, targetValue)
                 "-" -> subtraction(beforeValue, targetValue)
                 "*" -> multiplication(beforeValue, targetValue)
-                else -> division(beforeValue, targetValue)
+                "/" -> division(beforeValue, targetValue)
+                else ->  throw IllegalArgumentException()
             }
         return result
     }
