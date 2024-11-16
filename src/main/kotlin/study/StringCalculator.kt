@@ -32,13 +32,8 @@ class StringCalculator {
         return listOf(*input.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray())
     }
 
-    @Throws(NumberFormatException::class)
-    fun isNumeric(s: String): Boolean {
-        return try {
-            s.toInt()
-            true
-        } catch (e: NumberFormatException) {
-            false
-        }
+    private fun isNumeric(s: String): Boolean {
+        return runCatching { s.toInt() }.isSuccess
     }
+
 }
