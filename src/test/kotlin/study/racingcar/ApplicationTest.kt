@@ -1,8 +1,11 @@
 package study.racingcar
 
 import org.assertj.core.api.AssertionsForClassTypes
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.RepeatedTest
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
+import study.racingcar.service.RacingService
 import java.io.ByteArrayInputStream
 
 class ApplicationTest {
@@ -19,5 +22,15 @@ class ApplicationTest {
         //then
         AssertionsForClassTypes.assertThatThrownBy { Application().main() }
             .isInstanceOf(IllegalArgumentException::class.java).hasMessage(resultMessage)
+    }
+
+
+    @RepeatedTest(10)
+    fun `게임의 랜덤 함수로 이동 카운트 반환 테스트`() {
+        //given - random repeat
+        //when
+        val result = RacingService(3, 3).getRandomMoveCount()
+        //then
+        assertTrue(result == 0 || result == 1)
     }
 }
