@@ -1,25 +1,28 @@
 package study.racingcar.service
 
+
 import study.racingcar.entity.Car
 
-class RacingService(val carCount: Int, val raceCount: Int) {
-
-    val cars = List(carCount) { Car() }
+class RacingService(carCount: Int, private val gameCount: Int) {
+    private val cars = List(carCount) { Car() }
 
     fun start() {
-        repeat(raceCount) {
-            cars.forEach { e -> e.move(getRandomMoveCount()) }
+        repeat(gameCount) {
+            cars.forEach { car -> car.move(getRandomMoveCount()) }
         }
     }
 
-    fun result() {
-        cars.forEach { e ->
-            println(e.getResult())
+    fun printResult() {
+        cars.forEach { car ->
+            println(car.getResult(PRINT_SYMBOL))
         }
     }
-    
-    fun getRandomMoveCount(): Int {
-        val randDomMoveCount = (0..9).random()
-        return if (randDomMoveCount > 4) 1 else 0
+
+    private fun getRandomMoveCount(): Int {
+        return (0..9).random()
+    }
+
+    companion object {
+        private val PRINT_SYMBOL = "-"
     }
 }

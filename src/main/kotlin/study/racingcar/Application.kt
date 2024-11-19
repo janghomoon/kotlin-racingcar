@@ -6,6 +6,8 @@ fun main() {
     println("자동차 대수는 몇 대인가요?")
     val carCount:Int? = readln().toIntOrNull()
     print("시도할 횟수는 몇 회인가요?")
-    val gapContent:Int? = readln().toIntOrNull()
-    RacingCarController(carCount, gapContent).start()
+    val gameCount:Int? = readln().toIntOrNull()
+    val racingCarController = RacingCarController()
+    racingCarController.start(carCount, gameCount)
+
 }

@@ -8,12 +8,12 @@ class RacingCarControllerTest {
 
     @ParameterizedTest
     @CsvSource("a, 1", "0, a")
-    fun `자동차 수와 라운드 수 문자열 입력 불가 테스트`(input: String, inputTwo:String) {
+    fun `자동차 수와 라운드 수 문자열 입력 불가 테스트`(input: String, inputTwo: String) {
         //given -valueSourc
         //when
-        val racingCarController = RacingCarController(input.toIntOrNull(), inputTwo.toIntOrNull())
+        val racingCarController = RacingCarController()
         //then
-        AssertionsForClassTypes.assertThatThrownBy { racingCarController.start() }
+        AssertionsForClassTypes.assertThatThrownBy { racingCarController.start(input.toIntOrNull(), inputTwo.toIntOrNull()) }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
 }

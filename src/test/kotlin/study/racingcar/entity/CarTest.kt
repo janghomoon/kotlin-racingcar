@@ -1,20 +1,19 @@
 package study.racingcar.entity
 
-import org.assertj.core.api.Assertions.assertThat
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
 class CarTest {
 
     @ParameterizedTest
-    @CsvSource("1, -", "2, --")
-    fun `이동 입력 및 이동값 출력값 반환 테스트`(input:Int, output:String?) {
+    @CsvSource("4, 1", "3, 0")
+    fun `이동 입력 및 이동값 출력값 반환 테스트`(input:Int, output:Int) {
         //given
-        val car = Car(0)
+        val car = Car()
         //when
         car.move(input)
         //then
-        assertThat(car.getResult()).isEqualTo(output)
-
+        car.currentPosition shouldBe output
     }
 }
