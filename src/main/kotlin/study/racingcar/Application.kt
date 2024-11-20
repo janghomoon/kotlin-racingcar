@@ -1,13 +1,18 @@
 package study.racingcar
 
+import study.racingcar.configuration.RacingConfiguration
 import study.racingcar.controller.RacingCarController
+import study.racingcar.view.InputView
+import study.racingcar.view.OutputView
+
+
+private val racingCarController: RacingCarController = RacingConfiguration().racingCarController()
 
 fun main() {
-    println("자동차 대수는 몇 대인가요?")
-    val carCount:Int? = readln().toIntOrNull()
-    print("시도할 횟수는 몇 회인가요?")
-    val gameCount:Int? = readln().toIntOrNull()
-    val racingCarController = RacingCarController()
+    val carCount: Int = InputView.getCarCount()
+    val gameCount: Int = InputView.getGameRoundCount()
     racingCarController.start(carCount, gameCount)
-
+    val cars = racingCarController.end()
+    OutputView.printResult(cars)
 }
+
