@@ -5,7 +5,6 @@ import study.racingcar.controller.RacingCarController
 import study.racingcar.view.InputView
 import study.racingcar.view.OutputView
 
-
 private val racingCarController: RacingCarController = RacingConfiguration().racingCarController()
 
 fun main() {
@@ -15,4 +14,3 @@ fun main() {
     val cars = racingCarController.end()
     OutputView.printResult(cars)
 }
-

@@ -10,9 +10,9 @@ object OutputView {
             printCarDistance(car)
         }
     }
-    private fun printCarDistance(car:Car) {
+
+    private fun printCarDistance(car: Car) {
         val result = DASHBAR_SYMBOL.repeat(car.currentPosition)
         println(result)
     }
-
 }
