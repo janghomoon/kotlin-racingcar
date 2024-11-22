@@ -7,11 +7,11 @@ class RacingCarController(
     private val racingService: RacingService,
 ) {
     fun start(
-        carCount: Int,
-        gaeCount: Int,
+        gameCount: Int,
+        carNames:Set<String>,
     ) {
-        racingService.intCars(carCount)
-        racingService.gameStart(gaeCount)
+        racingService.intCars(carNames)
+        racingService.gameStart(gameCount)
     }
 
     fun end(): List<Car> = racingService.gameEnd()

@@ -5,10 +5,10 @@ import study.racingcar.entity.Car
 class CarRepository {
     private val cars: MutableList<Car> = mutableListOf()
 
-    fun saveDefaultCar() {
-        this.cars.add(Car())
+    fun saveAllCars(cars: List<Car>) {
+        this.cars.addAll(cars)
     }
-    
+
     fun findAllCars(): List<Car> {
         return this.cars.toList()
     }
