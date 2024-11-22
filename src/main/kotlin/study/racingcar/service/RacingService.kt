@@ -6,11 +6,11 @@ import study.racingcar.view.OutputView
 import java.util.stream.Collectors
 
 class RacingService(private val carRepository: CarRepository) {
-
     fun intCars(carNames: Set<String>) {
-        val cars = carNames.stream()
-            .map { carName -> Car(carName) }
-            .collect(Collectors.toList())
+        val cars =
+            carNames.stream()
+                .map { carName -> Car(carName) }
+                .collect(Collectors.toList())
         carRepository.saveAllCars(cars)
     }
 
@@ -21,12 +21,13 @@ class RacingService(private val carRepository: CarRepository) {
             OutputView.printRoundResult(cars)
         }
     }
+
     private fun moveCars(cars: List<Car>) {
         cars.forEach { car -> car.move(getRandomMoveCount(), VALID_CONDITION) }
     }
 
-    fun gameEnd(): List<Car> {
-        return carRepository.findAllCars()
+    fun getWinners(): List<Car> {
+        return carRepository.findWinnerCars()
     }
 
     private fun getRandomMoveCount(): Int {

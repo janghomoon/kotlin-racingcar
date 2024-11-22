@@ -8,11 +8,11 @@ class RacingCarController(
 ) {
     fun start(
         gameCount: Int,
-        carNames:Set<String>,
+        carNames: Set<String>,
     ) {
         racingService.intCars(carNames)
         racingService.gameStart(gameCount)
     }
 
-    fun end(): List<Car> = racingService.gameEnd()
+    fun getWinners(): List<Car> = racingService.getWinners()
 }

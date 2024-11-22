@@ -21,9 +21,7 @@ class CarTest {
 
     @ParameterizedTest
     @CsvSource("문장호", "홍길동")
-    fun `이동 입력 및 이동값 출력값 반환 테스트`(
-        input: String
-    ) {
+    fun `이동 입력 및 이동값 출력값 반환 테스트`(input: String) {
         // given
         // when
         val car = Car(input)

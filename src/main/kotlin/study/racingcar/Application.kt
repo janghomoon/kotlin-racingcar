@@ -8,9 +8,9 @@ import study.racingcar.view.OutputView
 private val racingCarController: RacingCarController = RacingConfiguration().racingCarController()
 
 fun main() {
-    val carNames:Set<String> = InputView.getCarNames()
+    val carNames: Set<String> = InputView.getCarNames()
     val gameCount: Int = InputView.getGameRoundCount()
     racingCarController.start(gameCount, carNames)
-    val cars = racingCarController.end()
-    OutputView.printResult(cars)
+    val cars = racingCarController.getWinners()
+    OutputView.printWinners(cars)
 }
