@@ -28,8 +28,9 @@ class RacingServiceTest {
 
     @Test
     fun `가장 멀리간 자동차는 우승할 수 있다 또한 중복 될 수 있다`() {
+        val racingService = RacingService(carRepository)
         // given
-        val cars = carRepository.findWinnerCars()
+        val cars = racingService.getWinners()
         // when
         val winnerCarName = cars.stream().map { car -> car.name }.collect(Collectors.joining(","))
         // then

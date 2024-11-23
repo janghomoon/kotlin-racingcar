@@ -2,6 +2,7 @@ package study.racingcar.controller
 
 import study.racingcar.entity.Car
 import study.racingcar.service.RacingService
+import study.racingcar.view.OutputView
 
 class RacingCarController(
     private val racingService: RacingService,
@@ -11,7 +12,11 @@ class RacingCarController(
         carNames: Set<String>,
     ) {
         racingService.intCars(carNames)
-        racingService.gameStart(gameCount)
+        repeat(gameCount) {
+            val cars = racingService.getGameResultByRound()
+            OutputView.printRoundResult(cars)
+
+        }
     }
 
     fun getWinners(): List<Car> = racingService.getWinners()

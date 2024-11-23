@@ -12,10 +12,4 @@ class CarRepository {
     fun findAllCars(): List<Car> {
         return this.cars.toList()
     }
-
-    fun findWinnerCars(): List<Car> {
-        if (cars.isEmpty()) return emptyList()
-        val maxDistance = cars.maxOfOrNull { car -> car.currentPosition } ?: return emptyList()
-        return this.cars.filter { car -> car.currentPosition == maxDistance }.toList()
-    }
 }

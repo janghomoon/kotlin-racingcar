@@ -28,7 +28,7 @@ object InputView {
         }
         val carNameList: List<String> = carNames.split(",")
         carNameList.forEach { carName -> carNameSizeValid(carName) }
-        val carSet = carNameList.toSet()
+        val carSet: Set<String> = carNameList.toSet()
         require(carNameList.size == carSet.size) { "자동차 이름은 중복 될 수 없습니다." }
         return carSet
     }
