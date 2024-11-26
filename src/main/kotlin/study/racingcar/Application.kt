@@ -9,8 +9,14 @@ private val racingCarController: RacingCarController = RacingConfiguration().rac
 
 fun main() {
     val carNames: Set<String> = InputView.getCarNames()
+    racingCarController.initCarNames(carNames)
+
     val gameCount: Int = InputView.getGameRoundCount()
-    racingCarController.start(gameCount, carNames)
+    repeat(gameCount) {
+        val cars = racingCarController.start()
+        OutputView.printRoundResult(cars)
+    }
+
     val cars = racingCarController.getWinners()
     OutputView.printWinners(cars)
 }

@@ -7,17 +7,11 @@ import study.racingcar.view.OutputView
 class RacingCarController(
     private val racingService: RacingService,
 ) {
-    fun start(
-        gameCount: Int,
-        carNames: Set<String>,
-    ) {
+    fun initCarNames(carNames: Set<String>) {
         racingService.intCars(carNames)
-        repeat(gameCount) {
-            val cars = racingService.getGameResultByRound()
-            OutputView.printRoundResult(cars)
-
-        }
     }
+
+    fun start(): List<Car> = racingService.getGameResultByRound()
 
     fun getWinners(): List<Car> = racingService.getWinners()
 }
