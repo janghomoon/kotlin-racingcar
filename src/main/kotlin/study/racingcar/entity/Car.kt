@@ -8,6 +8,6 @@ class Car(carName: String, moveCount: Int = 0) {
         distance: Int,
         validCondition: Int,
     ) {
-        if (distance >= validCondition) currentPosition ++
+        if (distance >= validCondition) { currentPosition ++ }
     }
 }
