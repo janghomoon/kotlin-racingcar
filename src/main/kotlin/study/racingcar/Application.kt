@@ -5,14 +5,12 @@ import study.racingcar.controller.RacingCarController
 import study.racingcar.view.InputView
 import study.racingcar.view.OutputView
 
-
 private val racingCarController: RacingCarController = RacingConfiguration().racingCarController()
 
 fun main() {
-    val carCount: Int = InputView.getCarCount()
+    val carNames: Set<String> = InputView.getCarNames()
     val gameCount: Int = InputView.getGameRoundCount()
-    racingCarController.start(carCount, gameCount)
-    val cars = racingCarController.end()
-    OutputView.printResult(cars)
+    racingCarController.start(gameCount, carNames)
+    val cars = racingCarController.getWinners()
+    OutputView.printWinners(cars)
 }
-

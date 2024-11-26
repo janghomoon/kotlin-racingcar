@@ -3,13 +3,13 @@ package study.racingcar.repository
 import study.racingcar.entity.Car
 
 class CarRepository {
-    private var cars: MutableList<Car> = mutableListOf()
+    private val cars: MutableList<Car> = mutableListOf()
 
-    fun saveDefaultCar() {
-        this.cars.add(Car())
+    fun saveAllCars(cars: List<Car>) {
+        this.cars.addAll(cars)
     }
-    
+
     fun findAllCars(): List<Car> {
-        return this.cars
+        return this.cars.toList()
     }
 }

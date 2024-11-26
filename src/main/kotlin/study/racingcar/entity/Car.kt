@@ -1,13 +1,13 @@
 package study.racingcar.entity
 
-class Car(private var moveCount: Int = 0) {
-    val currentPosition: Int
-        get() = moveCount
+class Car(carName: String, moveCount: Int = 0) {
+    var currentPosition: Int = moveCount
+    val name: String = carName
 
     fun move(
         distance: Int,
         validCondition: Int,
     ) {
-        if (distance >= validCondition) moveCount++
+        if (distance >= validCondition) currentPosition ++
     }
 }
