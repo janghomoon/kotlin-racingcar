@@ -22,12 +22,12 @@ object OutputView {
     }
 
     private fun printCarNameAndDistance(car: Car) {
-        val result = List(car.currentPosition) { DASHBAR_SYMBOL }.joinToString("")
+        val result = DASHBAR_SYMBOL.repeat(car.currentPosition)
         logger.info { "${car.name} : $result" }
     }
 
     private fun printCarDistance(car: Car) {
-        val result = List(car.currentPosition) { DASHBAR_SYMBOL }.joinToString("")
+        val result = DASHBAR_SYMBOL.repeat(car.currentPosition)
         logger.info { result }
     }
 
