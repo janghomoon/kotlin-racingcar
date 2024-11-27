@@ -1,8 +1,8 @@
 package study.racingcar.controller
 
+import study.racingcar.dto.RoundResultResponse
 import study.racingcar.entity.Car
 import study.racingcar.service.RacingService
-import study.racingcar.view.OutputView
 
 class RacingCarController(
     private val racingService: RacingService,
@@ -11,7 +11,7 @@ class RacingCarController(
         racingService.intCars(carNames)
     }
 
-    fun start(): List<Car> = racingService.getGameResultByRound()
+    fun start(gameCount: Int): List<RoundResultResponse> = racingService.getGameResultByRound(gameCount)
 
     fun getWinners(): List<Car> = racingService.getWinners()
 }

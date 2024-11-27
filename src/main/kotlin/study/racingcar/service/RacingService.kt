@@ -1,7 +1,9 @@
 package study.racingcar.service
 
+import study.racingcar.dto.RoundResultResponse
 import study.racingcar.entity.Car
 import study.racingcar.repository.CarRepository
+import study.racingcar.util.CarUtil.getRandomMoveCount
 import java.util.stream.Collectors
 
 class RacingService(private val carRepository: CarRepository) {
@@ -18,25 +20,22 @@ class RacingService(private val carRepository: CarRepository) {
     }
 
     fun getWinners(): List<Car> {
-         val cars = carRepository.findAllCars()
+        val cars = carRepository.findAllCars()
         if (cars.isEmpty()) return emptyList()
         val maxDistance = cars.maxOfOrNull { car -> car.currentPosition } ?: return emptyList()
         return cars.filter { car -> car.currentPosition == maxDistance }.toList()
     }
 
-    private fun getRandomMoveCount(): Int {
-        return (START_INDEX..END_INDEX).random()
-    }
-
-    fun getGameResultByRound(): List<Car> {
-        val cars = carRepository.findAllCars()
-        moveCars(cars)
-        return cars
+    fun getGameResultByRound(gameCount: Int): List<RoundResultResponse> {
+        val initialCars = carRepository.findAllCars()
+        return (ONE..gameCount).map {
+            moveCars(initialCars) // 자동차 이동
+            RoundResultResponse(initialCars.map { it.clone() })
+        }
     }
 
     companion object {
-        private val START_INDEX = 0
-        private val END_INDEX = 9
         private val VALID_CONDITION = 4
+        private val ONE = 1
     }
 }
