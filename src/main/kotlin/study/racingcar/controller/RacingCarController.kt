@@ -15,7 +15,7 @@ class RacingCarController(
         return racingService.getGameResultByRound(gameCount)
     }
 
-    fun getWinners(): List<Car>{
+    fun getWinners(): List<Car> {
         return racingService.getWinners()
     }
 }

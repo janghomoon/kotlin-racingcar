@@ -1,16 +1,13 @@
 package study.racingcar.entity
 
 import study.racingcar.util.MoveStrategy
-import study.racingcar.util.targetGEvalidConditionMoveStrategy
+import study.racingcar.util.TargetGEvalidConditionMoveStrategy
 
 class Car(carName: String, moveCount: Int = 0) {
     var currentPosition: Int = moveCount
     val name: String = carName
-    var moveStrategy: MoveStrategy = targetGEvalidConditionMoveStrategy()
+    var moveStrategy: MoveStrategy = TargetGEvalidConditionMoveStrategy()
 
-    fun setMoveStrategy(moveStrategy: MoveStrategy) {
-        this.moveStrategy = moveStrategy
-    }
 
     fun move(
         distance: Int,

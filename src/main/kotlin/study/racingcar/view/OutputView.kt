@@ -10,7 +10,7 @@ object OutputView {
     private const val DASHBAR_SYMBOL = "-"
     private const val COMMA = ","
 
-    fun printRoundResult(roundResultResponses: List<RoundResultResponse>) {
+    fun printRoundResults(roundResultResponses: List<RoundResultResponse>) {
         roundResultResponses.forEach { roundResultResponse -> printRoundResult(roundResultResponse.cars) }
     }
 

@@ -3,7 +3,7 @@ package study.racingcar.service
 import study.racingcar.dto.RoundResultResponse
 import study.racingcar.entity.Car
 import study.racingcar.repository.CarRepository
-import study.racingcar.util.Random.getRandomMoveCount
+import study.racingcar.util.Move
 import java.util.stream.Collectors
 
 class RacingService(private val carRepository: CarRepository) {
@@ -16,7 +16,7 @@ class RacingService(private val carRepository: CarRepository) {
     }
 
     private fun moveCars(cars: List<Car>) {
-        cars.forEach { car -> car.move(getRandomMoveCount(), VALID_CONDITION) }
+        cars.forEach { car -> car.move(Move().getRandomMoveCount(), VALID_CONDITION) }
     }
 
     fun getWinners(): List<Car> {
