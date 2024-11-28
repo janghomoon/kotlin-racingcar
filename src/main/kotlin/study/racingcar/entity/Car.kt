@@ -1,6 +1,6 @@
 package study.racingcar.entity
 
-import study.racingcar.util.CarUtil.isMove
+import study.racingcar.util.Move.isMove
 
 class Car(carName: String, moveCount: Int = 0) {
     var currentPosition: Int = moveCount

@@ -3,7 +3,7 @@ package study.racingcar.service
 import study.racingcar.dto.RoundResultResponse
 import study.racingcar.entity.Car
 import study.racingcar.repository.CarRepository
-import study.racingcar.util.CarUtil.getRandomMoveCount
+import study.racingcar.util.Move.getRandomMoveCount
 import java.util.stream.Collectors
 
 class RacingService(private val carRepository: CarRepository) {

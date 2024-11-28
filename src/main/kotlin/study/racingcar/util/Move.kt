@@ -1,6 +1,6 @@
 package study.racingcar.util
 
-object CarUtil {
+object Move {
     private val START_INDEX = 0
     private val END_INDEX = 9
 
