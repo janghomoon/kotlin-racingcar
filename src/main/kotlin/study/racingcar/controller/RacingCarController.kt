@@ -11,7 +11,11 @@ class RacingCarController(
         racingService.intCars(carNames)
     }
 
-    fun start(gameCount: Int): List<RoundResultResponse> = racingService.getGameResultByRound(gameCount)
+    fun start(gameCount: Int): List<RoundResultResponse> {
+        return racingService.getGameResultByRound(gameCount)
+    }
 
-    fun getWinners(): List<Car> = racingService.getWinners()
+    fun getWinners(): List<Car>{
+        return racingService.getWinners()
+    }
 }
