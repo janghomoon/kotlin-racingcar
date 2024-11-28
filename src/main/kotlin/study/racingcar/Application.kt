@@ -12,7 +12,8 @@ fun main() {
     racingCarController.initCarNames(carNames)
 
     val gameCount: Int = InputView.getGameRoundCount()
-    racingCarController.start(gameCount).forEach { roundResult -> OutputView.printRoundResult(roundResult.cars) }
+    val response = racingCarController.start(gameCount)
+    OutputView.printRoundResult(response)
 
     val cars = racingCarController.getWinners()
     OutputView.printWinners(cars)
